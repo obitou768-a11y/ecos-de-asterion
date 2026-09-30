@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111713" />
+    <meta name="description" content="Ecos de Asterion: uma aventura de ação em fantasia sombria." />
+    <title>Ecos de Asterion</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">EA</span><span>ECOS DE ASTERION<small>AS CINZAS DO PRIMEIRO REINO</small></span></div>
+        <div class="chapter" hidden><span class="chapter-dot"></span> CAPÍTULO I <b>·</b> CINZAS DE VALDORA</div>
+        <button id="sound-toggle" class="icon-button" aria-label="Ativar ou desativar áudio" title="Áudio" hidden>♫</button>
+      </header>
+      <main class="game-shell">
+        <div id="game" aria-label="Mundo de jogo"></div>
+        <section id="start-screen" class="start-screen" aria-label="Menu inicial de Ecos de Asterion">
+          <div class="title-vignette"></div>
+          <div class="title-copy">
+            <span class="title-kicker"><i></i> UMA CRÔNICA DA RUPTURA</span>
+            <h1>ECOS <em>DE</em><br />ASTERION</h1>
+            <p class="title-subtitle">AS CINZAS DO PRIMEIRO REINO</p>
+            <div class="title-rule"><span></span><b>✦</b><span></span></div>
+            <button id="start-game" class="title-start"><span>INICIAR JORNADA</span><b>↗</b></button>
+            <p id="title-save-state" class="title-save-state">NOVA EXPEDIÇÃO · VALDORA</p>
+          </div>
+          <div class="title-location"><span>ASTERION</span><b>04:17 · CINZAS NO VENTO</b></div>
+          <div class="title-enter"><kbd>ENTER</kbd> PARA COMEÇAR</div>
+        </section>
+        <section class="hud" aria-label="Estado do personagem" hidden>
+          <div class="hero-panel">
+            <div class="portrait">K</div>
+            <div class="hero-stats">
+              <div class="hero-name"><strong>KAEL</strong><span id="level-label">NÍVEL 1</span></div>
+              <div class="meter health"><span id="health-fill"></span><label>VIDA <b id="health-value">100 / 100</b></label></div>
+              <div class="meter mana"><span id="mana-fill"></span><label>ÉTER <b id="mana-value">50 / 50</b></label></div>
+              <div class="meter stamina"><span id="stamina-fill"></span><label>VIGOR <b id="stamina-value">100 / 100</b></label></div>
+              <div class="meter experience"><span id="xp-fill"></span><label>XP <b id="xp-value">0 / 113</b></label></div>
+            </div>
+          </div>
+          <div class="objective"><span class="objective-label">OBJETIVO ATUAL</span><strong>Derrote as criaturas da Ruptura</strong><span id="objective-progress">8 criaturas restantes · Valdora</span></div>
+          <div class="minimap-frame"><div class="minimap-heading"><b id="region-label">VALDORA</b><span id="gold-label">12 OURO</span></div><canvas id="minimap" width="144" height="104"></canvas></div>
+          <button id="quick-potion" class="quick-item" aria-label="Usar poção de sangue"><span>PV</span><b id="potion-count">×2</b><small>Q</small></button>
+          <div class="controls-hint"><kbd>WASD</kbd> MOVER <kbd>SHIFT</kbd> CORRER <kbd>ESPAÇO</kbd> ESQUIVAR <kbd>J</kbd> GOLPE <kbd>K</kbd> ÉTER <kbd>TAB</kbd> MOCHILA <kbd>E</kbd> VIAJAR</div>
+        </section>
+        <div class="toast" id="toast" aria-live="polite"></div>
+        <div id="interaction-prompt" class="interaction-prompt" hidden></div>
+        <div id="region-banner" class="region-banner" hidden></div>
+        <div id="level-banner" class="level-banner" hidden></div>
+        <section id="game-menu" class="game-menu" hidden aria-label="Menu de personagem" aria-modal="true" role="dialog">
+          <div class="menu-panel">
+            <header class="menu-header"><div><span>REGISTRO DE ASTERION</span><h2 id="menu-heading">Mochila</h2></div><button id="menu-close" class="menu-close" aria-label="Fechar menu">×</button></header>
+            <nav class="menu-tabs" aria-label="Abas do personagem">
+              <button class="menu-tab" data-tab="attributes">Atributos</button>
+              <button class="menu-tab" data-tab="equipment">Equipamentos</button>
+              <button class="menu-tab active" data-tab="inventory">Inventário</button>
+              <button class="menu-tab" data-tab="skills">Habilidades</button>
+            </nav>
+            <div id="menu-content" class="menu-content"></div>
+            <footer class="menu-footer"><span><kbd>TAB</kbd> fechar <kbd>C</kbd> atributos</span><span id="save-status">Progresso salvo automaticamente</span></footer>
+          </div>
+        </section>
+        <div class="game-over" id="game-over" hidden><div class="over-card"><span>FIM DE JORNADA</span><h1>As cinzas<br />ainda respiram.</h1><p>Kael retornará ao portal anterior com os recursos restaurados.</p><button id="restart">VOLTAR AO PORTAL ANTERIOR <b>↗</b></button></div></div>
+      </main>
+      <footer id="game-footer" class="footer" hidden><span id="region-footer">VALDORA · CINZAS NO VENTO</span><span>JORNADA LOCAL <i></i> AUTOSAVE ATIVO</span></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
